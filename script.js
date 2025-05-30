@@ -22,9 +22,7 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-function playRound (humanChoice, computerChoice) { 
-    /*let humanChoice = getHumanChoice()
-    let computerChoice = getComputerChoice()*/
+function evalChoices(humanChoice, computerChoice) { 
      if (humanChoice == "rock" && computerChoice == "paper") {
         computerScore++
         console.log("You lose! Rock does not beat paper.")
@@ -47,60 +45,27 @@ function playRound (humanChoice, computerChoice) {
         console.log("DRAW")
      }
 }
-
+function playRound() {
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    evalChoices(humanSelection, computerSelection);
+}
 
  function playGame () {
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice()
-   playRound(humanSelection, computerSelection);
-
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice()
-   playRound(humanSelection, computerSelection);
-
-   humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice()
-   playRound(humanSelection, computerSelection);
-
-   humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice()
-   playRound(humanSelection, computerSelection);
-
-     humanSelection = getHumanChoice();
-     computerSelection = getComputerChoice()
-   playRound(humanSelection, computerSelection);
-
+   playRound();
+   playRound();
+   playRound();
+   playRound();
+   playRound();
    if (humanScore > computerScore) {
     console.log("You won!");
    } else {
     console.log("You lost.")
    }
- }
+}
 
 playGame();
 
 
  
- /*function stillPlayingGame () {
-    playGame (humanSelection, computerSelection)
-    if (humanScore < 4 && computerScore < 4) {
-        playGame(humanSelection, computerSelection);
-    } else {
-        return console.log("Game Over.");
-    }
-    if (humanScore = 3) {
-        return youWin();
-    }
-    if (computerScore = 3) {
-        return youLose();
-}
-}
-    
- function youWin() {
-    console.log("Congrats, you won!");
- }
- function youLose() {
-    console.log("Awww, Computer won.");
  
- }*/
-   
