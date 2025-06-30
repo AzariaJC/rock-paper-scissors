@@ -12,7 +12,7 @@ function getComputerChoice() {
     return "scissors";
   }
 }
-
+const result = document.querySelector("#result");
 /*function getHumanChoice() {
    let userInput = prompt("Rock, paper, or scissors?")
     let newUserInput = userInput.toLowerCase()
@@ -24,6 +24,10 @@ rockButton.addEventListener("click", () => {
   humanChoice = "rock";
   computerChoice = getComputerChoice();
   playGame(humanChoice, computerChoice);
+  const outcome = resultOfRound(humanChoice, computerChoice);
+  const span = document.createElement("span")
+  result.appendChild(span);
+  span.textContent = outcome;
 });
 
 paperButton.addEventListener("click", () => {
@@ -63,13 +67,13 @@ function evalChoices(humanChoice, computerChoice) {
   }
 }
 
-function resultOfRound() {
+function resultOfRound(humanChoice, computerChoice) {
    let humanWin = "You Won";
    let computerWin = "You Lost";
    let draw = "It's a tie"
-   if (humanChoice == "rock" && computerChouce == "paper" || 
+   if (humanChoice == "rock" && computerChoice == "paper" || 
       humanChoice == "paper" && computerChoice == "scissors" || 
-      humanChoice == "scissors" && computerChpice == "rock") {
+      humanChoice == "scissors" && computerChoice == "rock") {
          return computerWin;
       } else if (humanChoice == computerChoice) {
          return draw;
@@ -78,7 +82,7 @@ function resultOfRound() {
       }
 };
 
-const result = document.querySelector("#result");
+
 
 /*function playRound() { //I don't think I need this anymore, I think evalChoices should be suffice
   let humanSelection = getHumanChoice();
@@ -89,6 +93,7 @@ const result = document.querySelector("#result");
 function playGame(humanChoice, computerChoice) { //this is almost certainly going to have to be reworked. This function needs to be triggered when you click a button.
   evalChoices(humanChoice, computerChoice); //changed this to evalChoices instead of playRound
   //need to define humanChoice
+  resultOfRound(humanChoice, computerChoice);
   if (humanScore > computerScore) {
     console.log("You won!");
   } else {
