@@ -22,9 +22,25 @@ function getComputerChoice() {
 
 rockButton.addEventListener("click", () => {
   humanChoice = "rock";
-  computerChoice = getComputerChouce();
-  evalChoices(humanChoice, computerChoice); //THIS IS FOR THE NEW VERSION WITH THE UI
-}); //this is evalChoices bc that makes sense. We don't need playround to act a 'filter' here anymore.
+  computerChoice = getComputerChoice();
+  playGame(humanChoice, computerChoice);
+});
+
+paperButton.addEventListener("click", () => {
+  humanChoice = "paper";
+  computerChoice = getComputerChoice();
+  playGame(humanChoice, computerChoice);
+});
+
+scissorsButton.addEventListener("click", () => {
+  humanChoice = "scissors";
+  computerChoice = getComputerChoice();
+  playGame(humanChoice, computerChoice);
+});
+
+const result = document.querySelector("#result"); //this is supposed to be where the result of each roundshows up
+
+
 
 let humanScore = 0;
 let computerScore = 0;
@@ -58,8 +74,9 @@ function evalChoices(humanChoice, computerChoice) {
   evalChoices(humanSelection, computerSelection);
 }*///need to change this function, getHumanChoice() doesn't exist anymore w/UI
 
-function playGame() { //this is almost certainly going to have to be reworked. This function needs to be triggered when you click a button.
-  evalChoices(humanChoice, computerChoice);
+function playGame(humanChoice, computerChoice) { //this is almost certainly going to have to be reworked. This function needs to be triggered when you click a button.
+  evalChoices(humanChoice, computerChoice); //changed this to evalChoices instead of playRound
+  //need to define humanChoice
   if (humanScore > computerScore) {
     console.log("You won!");
   } else {
@@ -67,4 +84,3 @@ function playGame() { //this is almost certainly going to have to be reworked. T
   }
 }
 
-playGame();
