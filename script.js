@@ -85,7 +85,7 @@ function displayAfterFiveGames() {
     scoreDisplay.appendChild(endHumanScore);
     scoreDisplay.appendChild(finalDeclare);
   }
-};
+}
 
 paperButton.addEventListener("click", () => {
   clickCount++;
@@ -115,20 +115,6 @@ let humanScore = 0;
 let computerScore = 0;
 let clickCount = 0;
 
-function evalChoices(humanChoice, computerChoice) {
-  if (
-    (humanChoice == "rock" && computerChoice == "paper") ||
-    (humanChoice == "paper" && computerChoice == "scissors") ||
-    (humanChoice == "scissors" && computerChoice == "rock")
-  ) {
-    computerScore++;
-  } else if (humanChoice == computerChoice) {
-    computerScore++;
-    humanScore++;
-  } else {
-    humanScore++;
-  }
-}
 
 function resultOfRound(humanChoice, computerChoice) {
   let humanWin = "You Won";
@@ -139,17 +125,18 @@ function resultOfRound(humanChoice, computerChoice) {
     (humanChoice == "paper" && computerChoice == "scissors") ||
     (humanChoice == "scissors" && computerChoice == "rock")
   ) {
+    computerScore++;
     return computerWin;
   } else if (humanChoice == computerChoice) {
+    computerScore++;
+    humanScore++;
     return draw;
   } else {
+    humanScore++;
     return humanWin;
   }
 }
 
 function playGame(humanChoice, computerChoice) {
-  //this is almost certainly going to have to be reworked. This function needs to be triggered when you click a button.
-  evalChoices(humanChoice, computerChoice); //changed this to evalChoices instead of playRound
-  //need to define humanChoice
   resultOfRound(humanChoice, computerChoice);
 }
