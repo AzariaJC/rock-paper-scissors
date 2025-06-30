@@ -23,46 +23,69 @@ rockButton.addEventListener("click", () => {
   const listItem = document.createElement("li");
   result.appendChild(listItem);
   listItem.textContent = outcome;
-  if (clickCount === 5 && computerScore > humanScore) {
-   const gameEndSection = document.querySelector("#gameEndSection");
-   const endMessage = document.createElement("p");
-   const endComputerScore = document.createElement("li")
-   const endHumanScore = document.createElement("li");
-   const scoreDisplay = document.createElement("ul");
-   const finalDeclare = document.createElement("p");
-
-   endMessage.textContent = "GAME OVER"
-   scoreDisplay.textContent = "Scoreboard"
-   endComputerScore.textContent = computerScore;
-   endHumanScore.textContent = humanScore;
-   finalDeclare.textContent = "COMPUTER WINS"
-
-   
-   gameEndSection.appendChild(endMessage);
-   gameEndSection.appendChild(scoreDisplay);
-   scoreDisplay.appendChild(endComputerScore);
-   scoreDisplay.appendChild(endHumanScore);
-  } else if (clickCount === 5 && computerScore < humanScore) {
-   const gameEndSection = document.querySelector("#gameEndSection");
-   const endMessage = document.createElement("p");
-   const endComputerScore = document.createElement("li")
-   const endHumanScore = document.createElement("li");
-   const scoreDisplay = document.createElement("ul");
-   const finalDeclare = document.createElement("p");
-
-   endMessage.textContent = "GAME OVER"
-   scoreDisplay.textContent = "Scoreboard"
-   endComputerScore.textContent = computerScore;
-   endHumanScore.textContent = humanScore;
-   finalDeclare.textContent = "YOU WIN"
-
-   
-   gameEndSection.appendChild(endMessage);
-   gameEndSection.appendChild(scoreDisplay);
-   scoreDisplay.appendChild(endComputerScore);
-   scoreDisplay.appendChild(endHumanScore);
-  }
+  displayAfterFiveGames();
 });
+
+function displayAfterFiveGames() {
+  if (clickCount === 5 && computerScore > humanScore) {
+    const gameEndSection = document.querySelector("#gameEndSection");
+    const endMessage = document.createElement("p");
+    const endComputerScore = document.createElement("li");
+    const endHumanScore = document.createElement("li");
+    const scoreDisplay = document.createElement("ul");
+    const finalDeclare = document.createElement("p");
+
+    endMessage.textContent = "GAME OVER";
+    scoreDisplay.textContent = "Scoreboard";
+    endComputerScore.textContent = computerScore;
+    endHumanScore.textContent = humanScore;
+    finalDeclare.textContent = "COMPUTER WINS";
+
+    gameEndSection.appendChild(endMessage);
+    gameEndSection.appendChild(scoreDisplay);
+    scoreDisplay.appendChild(endComputerScore);
+    scoreDisplay.appendChild(endHumanScore);
+    scoreDisplay.appendChild(finalDeclare);
+  } else if (clickCount === 5 && computerScore < humanScore) {
+    const gameEndSection = document.querySelector("#gameEndSection");
+    const endMessage = document.createElement("p");
+    const endComputerScore = document.createElement("li");
+    const endHumanScore = document.createElement("li");
+    const scoreDisplay = document.createElement("ul");
+    const finalDeclare = document.createElement("p");
+
+    endMessage.textContent = "GAME OVER";
+    scoreDisplay.textContent = "Scoreboard";
+    endComputerScore.textContent = computerScore;
+    endHumanScore.textContent = humanScore;
+    finalDeclare.textContent = "YOU WIN";
+
+    gameEndSection.appendChild(endMessage);
+    gameEndSection.appendChild(scoreDisplay);
+    scoreDisplay.appendChild(endComputerScore);
+    scoreDisplay.appendChild(endHumanScore);
+    scoreDisplay.appendChild(finalDeclare);
+  } else if (clickCount === 5 && computerScore === humanScore) {
+    const gameEndSection = document.querySelector("#gameEndSection");
+    const endMessage = document.createElement("p");
+    const endComputerScore = document.createElement("li");
+    const endHumanScore = document.createElement("li");
+    const scoreDisplay = document.createElement("ul");
+    const finalDeclare = document.createElement("p");
+
+    endMessage.textContent = "GAME OVER";
+    scoreDisplay.textContent = "Scoreboard";
+    endComputerScore.textContent = computerScore;
+    endHumanScore.textContent = humanScore;
+    finalDeclare.textContent = "IT'S A TIE";
+
+    gameEndSection.appendChild(endMessage);
+    gameEndSection.appendChild(scoreDisplay);
+    scoreDisplay.appendChild(endComputerScore);
+    scoreDisplay.appendChild(endHumanScore);
+    scoreDisplay.appendChild(finalDeclare);
+  }
+};
 
 paperButton.addEventListener("click", () => {
   clickCount++;
@@ -73,6 +96,7 @@ paperButton.addEventListener("click", () => {
   const listItem = document.createElement("li");
   result.appendChild(listItem);
   listItem.textContent = outcome;
+  displayAfterFiveGames();
 });
 
 scissorsButton.addEventListener("click", () => {
@@ -84,6 +108,7 @@ scissorsButton.addEventListener("click", () => {
   const listItem = document.createElement("li");
   result.appendChild(listItem);
   listItem.textContent = outcome;
+  displayAfterFiveGames();
 });
 
 let humanScore = 0;
