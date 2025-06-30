@@ -38,7 +38,7 @@ scissorsButton.addEventListener("click", () => {
   playGame(humanChoice, computerChoice);
 });
 
-const result = document.querySelector("#result"); //this is supposed to be where the result of each roundshows up
+
 
 
 
@@ -48,26 +48,38 @@ let computerScore = 0;
 function evalChoices(humanChoice, computerChoice) {
   if (humanChoice == "rock" && computerChoice == "paper") {
     computerScore++;
-    console.log("You lose! Rock does not beat paper.");
   } else if (humanChoice == "paper" && computerChoice == "rock") {
     humanScore++;
-    console.log("You win! Paper beats rock!");
   } else if (humanChoice == "rock" && computerChoice == "scissors") {
     humanScore++;
-    console.log("You win! Rock beats scissors!");
   } else if (humanChoice == "scissors" && computerChoice == "rock") {
     computerScore++;
-    console.log("You lose! Scissors does not beat rock.");
   } else if (humanChoice == "paper" && computerChoice == "scissors") {
     computerScore++;
-    console.log("You lose! Paper does not beat scissor. ");
   } else if (humanChoice == "scissors" && computerChoice == "paper") {
     humanScore++;
-    console.log("You win! Scissors beats paper!");
   } else {
     console.log("DRAW");
   }
 }
+
+function resultOfRound() {
+   let humanWin = "You Won";
+   let computerWin = "You Lost";
+   let draw = "It's a tie"
+   if (humanChoice == "rock" && computerChouce == "paper" || 
+      humanChoice == "paper" && computerChoice == "scissors" || 
+      humanChoice == "scissors" && computerChpice == "rock") {
+         return computerWin;
+      } else if (humanChoice == computerChoice) {
+         return draw;
+      }  else {
+         return humanWin;
+      }
+};
+
+const result = document.querySelector("#result");
+
 /*function playRound() { //I don't think I need this anymore, I think evalChoices should be suffice
   let humanSelection = getHumanChoice();
   let computerSelection = getComputerChoice();
@@ -82,5 +94,5 @@ function playGame(humanChoice, computerChoice) { //this is almost certainly goin
   } else {
     console.log("You lost.");
   }
-}
+};
 
